@@ -1,0 +1,277 @@
+.body{
+	left:0;
+}
+
+.tops{
+	z-index:1;
+}
+
+/* Fixed sidenav, full height */
+.navbar {
+	height:74%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    background-color: #FFFAF0 ; 
+    padding-left:10px;
+    top:198px;
+    overflow: hidden;
+   
+    
+   
+}
+
+#inner{
+	width: 100%;
+    overflow: auto;
+    height: 100%;
+    padding-right: 15px;
+}
+
+
+
+
+.harea{
+	position:fixed;
+	margin-left:0px;
+	margin-right:0px;
+	right:0;
+    left:0;
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding-top:10px;
+    top:120px;
+    color:black;    
+    background:black;
+
+}
+
+
+
+#area{
+	width:700px;
+	height:40px;
+}
+
+textarea{  
+  /* box-sizing: padding-box; */
+  overflow:hidden;
+  /* demo only: */
+  padding:10px;
+  font-size:14px;
+  margin-left:210px;
+  overflow-y:scroll;
+  
+ 
+}
+
+.ayam{
+	position:fixed;
+	display:inline-block;
+	margin: 10px;
+	margin-top:5px;
+	font:inherit;
+	
+}
+
+#submitIngr{
+	width:150px;
+	height:55px;
+	border:none;
+	outline:none;
+	font-size:20px;
+	transition: all .2s ease-in-out;
+	background-color: white;
+}
+
+#submitIngr:hover { 
+	transform: scale(1.1); 
+	background-color: black;
+	color:white;
+}
+
+
+/* Style the sidenav links and the dropdown button */
+.dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+.dropdown-btn:hover  {
+	font-weight: black; 
+}
+
+
+/* Add an active class to the active dropdown button */
+.active {
+    background-color: green;
+    color: white;
+}
+
+.dropdown-container {
+    display: none;
+    padding:20px;
+}
+
+
+.column{
+	float: left;
+    width: 170px;;
+    padding: 5px;
+    height: 210px;
+}
+
+#submit{
+	width:100%;
+	height:30px;
+	font:inherit;
+	border:none;
+	outline:none;
+	margin-bottom:20px;
+}
+
+.resultComponent{
+	margin-left:230px;
+	margin-right:0px;
+	right:0px;
+	width:1020px;
+    
+	margin-top:200px;
+	
+}
+
+/* The container <div> - needed to position the dropdown content */
+.sortdropdown {
+    margin-left:10px;
+    margin-top:10px; 
+    margin-right:10px;
+    top:200px;
+    	
+    	padding :10px;
+    
+}
+
+.result{
+	margin :10px;
+	
+	padding :10px;
+	position:relative;
+	z-index:-1;
+}
+
+.recipePhoto{
+	width:260px;
+	height:220px;
+}
+
+#update{
+   display:none;
+   position: absolute;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+   background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+   color: #f1f1f1; /* Grey text */
+   padding: 20px; /* Some padding */
+}
+
+.container:hover #update{
+  display:block;
+}
+
+.title{
+	display:inline-block;
+}
+
+.filter, .sort{
+	display:inline-block;
+	margin:10px;
+}
+
+.sort{
+	margin-left:520px;
+}
+
+/* Dropdown Button */
+.sortdropbtn , .filterButton{
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    font-size: 12px;
+    border: none;
+    margin-right:5px;
+    width:150px;
+    float:center;
+}
+
+
+
+
+
+/* Dropdown Content (Hidden by Default) */
+.sortdropdown-content , .filterdropdown-content{
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    z-index: 1;
+    width:160px;
+    padding:20px;   
+}
+
+/* Links inside the dropdown */
+.sortdropdown-content a , .filterdropdown-content a{
+    color: black;
+    padding-top: 12px 16px;
+    text-decoration: none;
+    font-size:20px;
+}
+
+.sortdropdown-content a:hover , .filterdropdown-content a:hover{
+     color:green;
+}
+
+
+.filter:hover .filterdropdown-content{
+	 display: block;
+}
+
+
+/* Show the dropdown menu on hover */
+.sort:hover .sortdropdown-content {
+    display: block;
+}
+
+.container {
+    text-align: center;
+    color: white;
+    margin: 18px;
+    width:280px;
+    height:300px;
+    border:solid ;
+    position:relative;
+    font: italic 0.8em "Fira Sans", serif;
+    background-color:white;
+    display:inline-block;
+    float: left;
+    
+}
+
+/* Top left text */
+.top-left {
+   font: italic 1.5em "Fira Sans", serif;
+   color:black;
+   padding:6px;
+   height:60px;
+}
+
+
+

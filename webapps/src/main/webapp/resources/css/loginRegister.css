@@ -1,0 +1,105 @@
+body {
+    background-color: #FDF5E6;
+}
+
+.loginregform{
+	margin: 80px auto;
+    width: 40%;
+    border-radius:5px;
+    height:430px;
+    padding: 45px;  
+    background-color: #FFFAF0 ; 
+  }
+
+.loginregtabs{
+	margin: 0px 0px 40px 15px;  
+	list-style: none;
+	padding:0;
+	position: relative;
+	width:auto;
+}
+
+.loginregtabs li{
+	display:inline-block;
+}
+
+.loginregtabs li a{
+	
+	display: block;
+	color:white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.5s ease;
+    font-weight: bold;
+    background-color: #CDBE70;
+    padding: 15px 85px 15px 50px; 
+    font-size:20px;
+    width: 50%;
+    text-align:center;
+}
+
+.loginregtabs li a:hover {
+  background: #8B4513;
+  color: #ffffff;
+}
+
+.loginregtabs .act a{
+	background: #8B8B00;
+    color: #ffffff;
+}
+
+.formContent > div:last-child {
+  display: none;
+}
+
+h1 {
+	text-align:center;
+	color:#8B4513;
+}
+
+.firstRowregFormTitle > div{
+  float:left;
+  width: 48%;
+  margin-right: 4%;
+}
+
+.firstRowregFormTitle > div:last-child {
+  margin: 0;
+}
+
+label {
+color: #8B4513;
+transition: all 0.25s ease;
+font-size: 22px;
+}
+  
+input, textarea {
+  font-size: 22px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #a0b3b0;
+  color: green;
+  border-radius: 0;
+}
+
+.createaccbutton,.loginbutton{
+	margin:auto;
+	margin-top:40px;
+    display: block;
+ 	width: 80%;
+ 	float:center;
+	background-color: #8B8B00;
+ 	font-size: 30px;
+ 	font-weight: 600;
+ 	color:white;
+}
+ 
+ .createaccbutton:hover, .loginbutton:hover{
+ 	 background: #8B4513;
+ 	
+}
+
+
+
+  

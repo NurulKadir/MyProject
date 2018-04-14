@@ -1,0 +1,48 @@
+.container {
+    text-align: center;
+    color: white;
+    top:90px;
+    margin-bottom:40px;
+}
+
+.introduction{
+	margin : 0;
+	position:absolute;
+	top : 50%;
+	left :50%;
+	margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-size:36px;
+    z-index:10;
+}
+
+.find{
+	font-family:"Arial Black", Gadget, sans-serif;;
+	cursor: pointer;
+	width: 300px;
+    height: 250px;    
+    padding: 25px;
+    background-color:#FFA500;
+    	text-decoration: none; 
+    	color : white;
+    	font-size: 45px;
+    	text-align:center;
+    	border-style:solid;
+    display:inline-block;
+    float:left;
+    margin:32px;
+    transition: all .2s ease-in-out;
+}
+
+.find:hover{
+	transform: scale(1.1);
+}
+
+footer {
+  position: initial;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}

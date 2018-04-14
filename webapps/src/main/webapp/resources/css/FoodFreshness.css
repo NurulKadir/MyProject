@@ -1,0 +1,321 @@
+html {
+    overflow: -moz-scrollbars-vertical; 
+    overflow-y: scroll;
+}
+
+body { 
+	margin:0; 
+}
+
+h1{
+	 font-size: 36px;
+	 margin-left : 40px;
+	 margin-bottom:20px;
+	 text-decoration : none;	 
+	 color: #8B4513;
+	 font-family: Arial, Helvetica, sans-serif;
+	 
+}
+
+
+/* Fixed chooseFood, full height */
+.chooseFood {
+    height:84%;
+    width: 300px;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    background-color: #FFFAF0 ; 
+    padding-left:10px;
+    top:121px;
+    overflow: hidden;
+   
+}
+
+#inner{
+	width: 100%;
+    overflow: auto;
+    height: 93%;
+    padding-right: 15px;
+    padding-top:40px;
+}
+
+/* Style the chooseFood links and the dropdown button */
+.dropButton {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+/* On mouse-over */
+.dropButton:hover {
+    color: black;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+    color: black;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+    display: none;
+    padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+    .chooseFood {padding-top: 15px;}
+    .chooseFood a {font-size: 18px;}
+}
+
+.dairyButtons{
+	color:green;
+	margin-left: 50px;
+}
+
+.foodButtons{
+	margin-left: 50px;
+	color:green;
+}
+.foodListLabel{
+	padding: 6px 8px 6px 16px;
+	font-size :27px;
+	color: #8B4513;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+.radioLabel{
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	color:#8B8B00;
+	
+}
+
+.radioInfo{
+	font-size: 20px;
+	font-family: Arial, Helvetica, sans-serif;
+	color:#8B8B00;
+}
+
+
+.radioTime{
+		font-size: 13px;
+		font-family: Arial, Helvetica, sans-serif;
+	color:#8B8B00;
+}
+
+
+
+
+
+.main {
+    margin-left: 360px; /* Same as the width of the chooseFood */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding-top:10px;
+    height:80%;
+    margin-top:120px;
+    top:10px;
+}
+
+.foodInfo , .foodResult{
+	border: 2px dotted #8B4513;
+	padding:20px;
+	margin:40px;
+	margin-top:0px;	
+	float:left;
+	background-color: #FFFAF0 ; 
+}
+
+.foodName{
+	width:775px;
+	border:solid;
+	text-align:center;
+	padding:20px;
+	margin-right:40px;
+	margin-left: 406px;
+}
+
+.foodNa{
+	width:775px;
+	border:solid;
+	text-align:center;
+	padding:20px;
+	margin-right:40px;
+	margin-left: 406px;
+	top:10px;
+}
+
+#theFood{
+	font-size: 25px;
+    background-color: #8B8B00 ;
+    width: 660px;
+    border: 25px solid #8B8B00;
+    padding: 20px;
+    margin: 10px;
+    text-align:center;
+    color:#FFFAF0;
+    	font-family: Arial, Helvetica, sans-serif;
+    	float:center;
+    
+}
+
+.foodResult{
+	margin-left: 406px;
+}
+
+.ed{
+	font-size: 25px;
+    color:#8B8B00;
+    	font-family: Arial, Helvetica, sans-serif;
+    width: 148px;
+    	height:200px;
+    border: 25px solid #8B8B00;
+    padding: 20px;
+    margin: 10px;
+    	float:left;
+    
+}
+
+.foodInfo {
+	margin-left: 406px;	
+	margin-top:20px;
+}
+
+
+.open , .unopen{
+	  border:solid;
+	  width:320px;
+	  padding:20px;	  
+	  margin-top:10px;
+	  float:right;	  
+	  margin:10px;
+	
+}
+
+.time{
+	width:35px;
+	height:50px;
+	float:left;
+	font-size:22px;
+}
+
+#inputDate{
+	width:300px;
+	height:40px;
+	float:left;
+	font-size:22px;
+	color:grey;
+}
+
+.ui-datepicker {
+	width: 17em;
+	padding: .2em .2em 0;
+	display: none;
+    background:#846733;  
+}
+.ui-datepicker .ui-datepicker-title {
+	margin: 0 2.3em;
+	line-height: 1.8em;
+	text-align: center;
+    color:#FFFFFF;
+    background:#846733;  
+}
+.ui-datepicker table {
+	width: 100%;
+	font-size: .7em;
+	border-collapse: collapse;
+    font-family:verdana;
+	margin: 0 0 .4em;
+    color:#000000;
+    background:#FDF8E4;    
+}
+.ui-datepicker td {
+
+	border: 0;
+	padding: 1px;
+
+    
+}
+.ui-datepicker td span,
+.ui-datepicker td a {
+	display: block;
+	padding: .8em;
+	text-align: right;
+	text-decoration: none;
+}
+
+
+.belowmain{
+	left: 500px;
+	float:right;
+	margin-top:0px;	
+}
+
+.categoryTitle{
+	font-size: 20px;
+	font-family: Arial, Helvetica, sans-serif;
+	color:#8B8B00;
+		text-align:center;
+	
+}
+
+.Info{
+	margin-left: 406px;
+	float:right;
+	border:solid;
+	position:relative;
+	padding:40px;
+	margin-right:40px;
+	border: 2px dotted #8B4513;
+	margin-bottom:40px;
+	font-family: Arial, Helvetica, sans-serif;
+	
+}
+
+.question{
+	font-family: Arial, Helvetica, sans-serif;
+	text-align:center;
+	
+}
+
+.res{
+	font-family: Arial, Helvetica, sans-serif;
+	text-align:center;
+}
+
+.checker{
+	margin-top:120px;
+	background-color: #8B8B00 ;
+	border:solid;
+	
+}
+
+.openedsubmit, .unopenedsubmit{
+	padding: 10px 8px 10px 16px;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    width:100%;
+    text-align:center;
+    background-color: #555555;  
+}
+
+.bigFood{
+	display:block;
+}

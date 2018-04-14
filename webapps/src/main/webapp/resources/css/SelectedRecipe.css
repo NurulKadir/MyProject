@@ -1,0 +1,131 @@
+html {
+    overflow: -moz-scrollbars-vertical; 
+    overflow-y: scroll;
+}
+
+body { 
+	margin:0; 
+	background-color: #FFFAF0;
+	
+}
+
+.upperContainer{
+	
+	z-index:-1;
+	margin : 90px;
+	margin-top:180px;
+	margin-bottom:20px;
+	background-color: white;
+	
+}
+
+.lowerContainer{
+	z-index:-1;
+	margin:90px;
+	margin-top:20px;
+	background-color: white;
+	
+}
+
+.photoContainer{
+	
+	margin:15px;
+	margin-top:50px;
+	width:400px;
+	height:400px;
+	display:inline-block;
+	float:left;
+	padding:10px;
+}
+
+.recipePhoto{
+	width:390px;
+	height:390px;
+	margin:5px;
+}
+
+.recipeInformationContainer{
+	
+	margin:10px;
+	margin-top:40px;
+	width:580px;
+	height:400px;
+	display:inline-block;
+	padding:10px;
+	
+}
+
+h1{
+  font-size:2em;
+}
+
+
+.nutbox{
+	width:100px;
+	border:solid #6E8B3D;
+	display:inline-block;
+	font-size:16px;
+	padding:10px;
+	margin:5px;
+	text-align:center;
+	
+}
+
+
+.ingredientsContainer{
+	margin:0px;
+	width:370px;
+	float:left;
+	padding:30px;
+	display:inline-block;
+	background-color: white;
+	
+}
+
+.methodContainer{
+	margin-right:0px;
+	margin-left:25px;
+	width:580px;
+	padding:25px;
+	background-color: white;
+	display:inline-block;
+}
+
+.recipeColumn{
+	font-family: Tahoma, Geneva, sans-serif;
+	color:#8B4513;
+	font-weight:bold;
+}
+
+.recipeColumnValue{
+	font-family: Tahoma, Geneva, sans-serif;
+	color:#6E8B3D;
+	font-weight:bold;
+	font-size:14px;
+}
+
+.sentence{
+	font-weight:normal;
+	font-size:16px;
+}
+
+.nutcolumn{
+	font-family: Tahoma, Geneva, sans-serif;
+	color:#6E8B3D;
+}
+
+
+.ingrcol{
+	font-family: Tahoma, Geneva, sans-serif;
+	color:#8B4513;
+	font-weight:bold;
+}
+
+.ingrval{
+	font-family: Tahoma, Geneva, sans-serif;
+	color:#8B4513;
+}
+
+hr{
+	border-top: 1px solid #ccc;
+}
