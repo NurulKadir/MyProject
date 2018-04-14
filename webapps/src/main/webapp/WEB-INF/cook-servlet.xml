@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+
+<mvc:resources location="/resources/" mapping="/resources/**"/>
+	<mvc:annotation-driven/>
+	<context:component-scan base-package="com.fyp.webappss"/>
+	
+	<!-- Create bean using configuration metadata -->
+	<!-- Implementation of the C3P0 library to open a connection pool for MySQL-->
+	<bean id="cookdataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/MYRECIPE?useSSL=false" />
+		<property name="user" value="root" />
+		<property name="password" value="ravenclaw83" /> 
+		<property name="minPoolSize" value="3" />
+		<property name="maxPoolSize" value="10" />
+		<property name="maxIdleTime" value="30000" />
+	</bean>
+
+
+</beans>

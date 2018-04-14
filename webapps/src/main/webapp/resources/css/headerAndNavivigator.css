@@ -1,0 +1,89 @@
+body {
+    background-color: #FFFAF0;
+    margin:0;
+
+   
+}
+.header {
+  overflow: hidden;
+  padding-top: 20px ;
+  padding-bottom:10px;
+  position:fixed;
+  width:100%;
+  top:0;
+  margin-bottom:0px;
+  background-color:#FFFAF0;
+  padding-bottom:15px;
+}
+
+.header a {
+  float: left;
+  text-align: center;
+  padding: 12px ;
+  text-decoration: none;
+  line-height: 25px;
+  margin : 0;
+}
+
+.header + .container{
+	padding-top: 60px;
+}
+
+.header a.applogo {
+  font-size: 300%;
+  font-weight: bold;
+  margin-bottom : 8px;
+  font-family:"Arial Black", Gadget, sans-serif;
+  color: #6E8B3D; 
+}
+
+.header-login {
+  float: right;
+}
+
+a + a {
+    margin-left: 40px;
+    color:#8B4513;
+}
+
+.header a.loginregister {
+  background-color: #8B4513;	
+  color: #FDF5E6;
+  margin-right : 30px;
+}
+
+.header a.aboutapphome{
+	color: #CD661D;
+}
+
+
+about{
+  font-size: 100%;
+}
+
+.appNavigation {
+  overflow: hidden;
+  background: #8B4513;  
+  width:100%;
+  text-align:center;
+  margin-left:0px;
+  left:0;
+  position: fixed;
+  top:80px;
+  margin-top:0px;  
+  z-index: 1;
+}
+
+.appNavigation a{
+	display : block;
+	text-decoration : none;
+	float : left;
+	padding:11px;
+	color: white;
+	font-size:17px; 
+	padding-top:10px;
+}
+
+.appNavigation a:hover{
+	background-color: #8B8B00 ; 
+}
