@@ -1,25 +1,13 @@
 package com.fyp.webapps;
 
-import java.awt.image.BufferedImage;
 import java.beans.PropertyVetoException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.List;
 
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-
-import com.fyp.webapps.dao.RealRecipeDAO;
 import com.fyp.webapps.dao.UserDAO;
 import com.fyp.webapps.entity.Login;
-import com.fyp.webapps.entity.Nutrition;
 //import com.fyp.webapps.dao.RecipeDAO;
-import com.fyp.webapps.entity.Recipe;
 import com.fyp.webapps.entity.User;
-import com.fyp.webapps.logic.RecipeFinder;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public final class Main {
