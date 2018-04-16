@@ -7,9 +7,9 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
 
-<mvc:resources location="/resources/" mapping="/resources/**"/>
+    <mvc:resources location="/resources/" mapping="/resources/**"/>
 	<mvc:annotation-driven/>
-	<context:component-scan base-package="com.fyp.webappss"/>
+	<context:component-scan base-package="com.fyp.webapps"/>
 	
 	<!-- Create bean using configuration metadata -->
 	<!-- Implementation of the C3P0 library to open a connection pool for MySQL-->
@@ -22,6 +22,4 @@
 		<property name="maxPoolSize" value="10" />
 		<property name="maxIdleTime" value="30000" />
 	</bean>
-
-
 </beans>

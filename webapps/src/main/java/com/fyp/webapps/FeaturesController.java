@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fyp.webapps.entity.FoodFreshness;
+import com.fyp.webapps.entity.Ingredient;
+import com.fyp.webapps.entity.Nutrition;
 import com.fyp.webapps.entity.Recipe;
 import com.fyp.webapps.entity.Requirement;
 import com.fyp.webapps.entity.UserInfo;
@@ -223,12 +225,14 @@ public class FeaturesController {
 	}
 	
 	@RequestMapping("/findRec")
-	public ModelAndView findRec(@RequestParam(required=false, name="chosenfood") String chosenfood) throws SQLException {
+	public ModelAndView findRec(@RequestParam(required=false, name="chosenfood") String chosenfood) throws SQLException, PropertyVetoException {
 		
-		RecipeFinder finder = new RecipeFinder();
+		RecipeFinder finder = new RecipeFinder(Main.getDataSource());
 		List<Recipe> all = finder.getTheRecipes(chosenfood);
 		for(Recipe rec : all) {
-			System.out.println(rec.getRecipeID() + " " + rec.getRecipeName() + "  " + rec.getDescription());
+			//System.out.println(rec.getRecipeID() + " " + rec.getRecipeName() + "  " + rec.getDescription() + " " + rec.getTotalTime());
+			System.out.println("hhhhh" + rec.getTotalTime()+"  " + rec.getTotalCalories());
+
 		}
 		ModelAndView model = new ModelAndView("findRecipe");
 		model.addObject("recipeList" , all);
@@ -255,11 +259,12 @@ public class FeaturesController {
 		String nutDesc = r.getNutritionDescription();
 		List<String> mealTypes = finder.getSelectedRecipesMeal(recipeID);
 		List<String> steps = finder.getMethods(recipeID);
-		HashMap<String,String> ingredients = finder.getIngredients(recipeID);
-		HashMap<String,String> nutritions = finder.getNutritions(recipeID);
+		List<Ingredient> ingredients = finder.getIngredients(recipeID);
+		//HashMap<String,String> ingredients = finder.getIngredients(recipeID);
+		List<Nutrition> nutritions = finder.getNutritions(recipeID);
 		List<String> ingredientList = finder.getIngredientList(recipeID);
-		for(String a : ingredientList) {
-			System.out.println(a);
+		for(Nutrition a : nutritions) {
+			System.out.println(a.getUnit());
 		}
 		
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -279,6 +284,7 @@ public class FeaturesController {
 		model.put("ingredients", ingredients);
 		model.put("steps", steps);
 		model.put("ingredientList", ingredientList);
+
 		
 		return new ModelAndView("/selectedRecipe.jsp",model);
 		

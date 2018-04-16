@@ -18,13 +18,13 @@
 	
 	
 	<div class="header">
-  		<a href="/webapp/" class="applogo">COOKWISE</a>
+  		<a href="/webapps/" class="applogo">COOKWISE</a>
   		
 	    <nav class="header-login">
-	    		<a class="aboutapphome" href="/webapp/" >Home</a>
+	    		<a class="aboutapphome" href="/webapps/" >Home</a>
   		 	<a class="aboutapphowto" href="#default" >How to</a>
   		    <a class="aboutappfaq" href="#default" >FAQ</a>
-		    <a class="loginregister" href="/webapp/loginRegister">Login/Register</a>    
+		    <a class="loginregister" href="/webapps/loginRegister">Login/Register</a>    
 	  	</nav>
 	</div>
 
@@ -38,10 +38,10 @@
     </div>
     
     
-  		<a href="/webapp/findRecipe" class="find">Find Recipe</a>
-		<a href="/webapp/foodFreshness" class="find">Freshness Checker</a>
-		<a href="/webapp/wasteTracker" class="find">Wasted-Money Calculator</a>
-		<a href="/webapp/nutRequirement" class="find">Nutritional Requirement Calculator</a>
+  		<a href="/webapps/findRecipe" class="find">Find Recipe</a>
+		<a href="/webapps/foodFreshness" class="find">Freshness Checker</a>
+		<a href="/webapps/wasteTracker" class="find">Wasted-Money Calculator</a>
+		<a href="/webapps/nutRequirement" class="find">Nutritional Requirement Calculator</a>
 		<a href="#default" class="find">Leftover Alternatives</a>
 		<a href="#default" class="find">Food Inventory</a>
 

@@ -1,12 +1,15 @@
 package com.fyp.webapps.logic;
 
 import java.sql.SQLException;
-import java.util.HashMap;
+import java.util.ArrayList;
+//import java.util.HashMap;
 import java.util.List;
 
 import javax.sql.DataSource;
 
 import com.fyp.webapps.dao.RealRecipeDAO;
+import com.fyp.webapps.entity.Ingredient;
+import com.fyp.webapps.entity.Nutrition;
 import com.fyp.webapps.entity.Recipe;
 
 public class SelectedRecipeFinder {
@@ -36,15 +39,15 @@ public class SelectedRecipeFinder {
 		return steps;
 	}
 
-	public HashMap<String,String> getIngredients(String recipeID) throws SQLException {
+	public List<Ingredient> getIngredients(String recipeID) throws SQLException {
 
-		HashMap<String,String> ingredients = dao.selectIngredients(recipeID);
+		List<Ingredient> ingredients = dao.selectIngredients(recipeID);
 		return ingredients;
 	}
 	
-	public HashMap<String,String> getNutritions(String recipeID) throws SQLException {
+	public ArrayList<Nutrition> getNutritions(String recipeID) throws SQLException {
 
-		HashMap<String,String> nutritions = dao.selectNutrition(recipeID);
+		ArrayList<Nutrition> nutritions = dao.selectNutrition(recipeID);
 		return nutritions;
 	}
 	

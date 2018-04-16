@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.sql.DataSource;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +13,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Repository;
 
+import com.fyp.webapps.entity.Ingredient;
+import com.fyp.webapps.entity.Nutrition;
 import com.fyp.webapps.entity.Recipe;
 
 
@@ -76,32 +78,38 @@ public class RealRecipeDAO implements BaseDao{
 					}});
 	}	
 	
-	public HashMap<String, String> selectNutrition(String recipeID) throws SQLException{
+	public ArrayList<Nutrition> selectNutrition(String recipeID) throws SQLException{
 
+		//System.out.println(recipeID);
 		JdbcTemplate select = new JdbcTemplate(dataSource);
-		return select.query("select Recipe.recipeID, Nutrition.nutritionName, Nutrition.nutritionDesc,RecipeNutrition.nutritionValue" + 
+		return select.query("select Recipe.recipeID, Nutrition.nutritionName, Nutrition.nutritionDesc, RecipeNutrition.nutritionValue, RecipeNutrition.unit" + 
 				"			from Recipe" + 
 				"			join RecipeNutrition on Recipe.recipeID = RecipeNutrition.recipeID "+ 
 				"			join Nutrition on Nutrition.nutritionID = RecipeNutrition.nutritionID" + 
-				"			where Recipe.recipeID = '" + recipeID + "'",new ResultSetExtractor<HashMap<String, String>>() {
+				"			where Recipe.recipeID = '" + recipeID + "'",new ResultSetExtractor<ArrayList<Nutrition>>() {
 
 					@Override
-					public HashMap<String, String> extractData(ResultSet rs) throws SQLException, DataAccessException {
-						return extractor.getSelectedNutrition(rs);	
+					public ArrayList<Nutrition> extractData(ResultSet rs) throws SQLException, DataAccessException {
+						ArrayList<Nutrition> a =  extractor.getSelectedNutrition(rs);	
+						for(Nutrition n : a) {
+							System.out.println(n.getNutritionName() + " " + n.getNutritionValue() + " " + n.getUnit());
+						}
+						return a;
+						
 					}
 		});
 	}
 	
-	public HashMap<String, String> selectIngredients(String recipeID) throws SQLException{
+	public List<Ingredient> selectIngredients(String recipeID) throws SQLException{
 
 		JdbcTemplate select = new JdbcTemplate(dataSource);
-		return select.query("select Recipe.recipeID, RecipeIngredients.quantity,RecipeIngredients.realIngredient" + 
+		return select.query("select Recipe.recipeID, RecipeIngredients.quantity, RecipeIngredients.unit, RecipeIngredients.realIngredient" + 
 				"			from Recipe" + 
 				"			join RecipeIngredients on Recipe.recipeID = RecipeIngredients.recipeID" + 
-				"			where Recipe.recipeID = '" + recipeID + "'",new ResultSetExtractor<HashMap<String, String>>(){
+				"			where Recipe.recipeID = '" + recipeID + "'",new ResultSetExtractor<List<Ingredient>>(){
 
 					@Override
-					public HashMap<String, String> extractData(ResultSet rs) throws SQLException, DataAccessException {
+					public List<Ingredient> extractData(ResultSet rs) throws SQLException, DataAccessException {
 						return extractor.getSelectedIngredients(rs);
 					}});
 

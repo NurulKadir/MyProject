@@ -115,7 +115,7 @@ h1{
 }
 
 
-.ingrcol{
+.ingrcol , .ingrcolumn{
 	font-family: Tahoma, Geneva, sans-serif;
 	color:#8B4513;
 	font-weight:bold;

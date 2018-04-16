@@ -3,10 +3,13 @@ package com.fyp.webapps.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
+//import java.util.HashMap;
 import java.util.List;
 
+import com.fyp.webapps.entity.Ingredient;
+import com.fyp.webapps.entity.Nutrition;
 import com.fyp.webapps.entity.Recipe;
+import com.fyp.webapps.entity.User;
 
 
 public class ResultExtractor  {
@@ -28,10 +31,16 @@ public class ResultExtractor  {
 				//System.out.println("description = " + description);
 				String photo = rs.getString("photoDir");
 				//System.out.println("description = " + photo);
+				int totalTime = rs.getInt("totalTime");
+				System.out.println("totaltime = " + totalTime);
+				String totalCal = rs.getString("nutritionValue");
+				System.out.println("totalCal = " + totalCal);
 				recipes.setRecipeID(ID);
 				recipes.setRecipeName(name);
 				recipes.setDescription(description);
 				recipes.setPhotoDir(photo);
+				recipes.setTotalTime(Integer.toString(totalTime));
+				recipes.setTotalCalories(totalCal);
 				list.add(recipes);
 			}
 		} catch (SQLException e) {
@@ -75,34 +84,7 @@ public class ResultExtractor  {
 	}
 
 	
-	public Recipe getSelectedRecipe(ResultSet rs) {
-		
-		Recipe recipe = null;
-		try {
-			while(rs.next()){
-				String recipeName = rs.getString("recipeName");
-				String description = rs.getString("description");
-				String additionalInfo = rs.getString("additionalInfo");
-				String prepTime = rs.getString("prepTime");
-				String cookingTime = rs.getString("cookingTime");
-				String totalTime = rs.getString("totalTime");
-				String serves = rs.getString("serves");
-				String complexity = rs.getString("complexity");
-				String cuisine = rs.getString("cuisine");
-				String category = rs.getString("category");
-				String restriction = rs.getString("restriction");
-				String photoDir = rs.getString("photoDir");
-				String nutDesc = rs.getString("nutritionDescription");
-				
-				recipe = new Recipe(recipeName,  description,  additionalInfo,  prepTime, cookingTime,  totalTime,  serves,  complexity,
-						 cuisine,  category,restriction, photoDir , nutDesc);
-				recipe.setDescription(description);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return recipe;
-	}
+	
 	
 	public List<String> getSelectedMethod(ResultSet rs) {
 		List<String> steps = new ArrayList<String>();
@@ -160,49 +142,54 @@ public class ResultExtractor  {
 	}
 	
 	
-	public HashMap<String, String> getSelectedNutrition(ResultSet rs) {
+	public ArrayList<Nutrition> getSelectedNutrition(ResultSet rs) {
 		
-		HashMap<String,String> nutritions = new HashMap<String,String>();
-		HashMap<String,String> nutdesc = new HashMap<String,String>();
+		ArrayList<Nutrition> nutritionList = new ArrayList<Nutrition>();
 		String recipeID = "";
 		
 		try {
 			while(rs.next()){
 				String nutname = rs.getString("nutritionName");
 				String nutQuan = rs.getString("nutritionValue");
-				String nutritionDesc = rs.getString("nutritionDesc");
-				 rs.getString("recipeID");
-				nutdesc.put(nutname, nutritionDesc);
-				nutritions.put(nutname, nutQuan);
+				//String nutritionDesc = rs.getString("nutritionDesc");
+				recipeID = rs.getString("recipeID");
+				String unit = rs.getString("unit");
+				Nutrition n = new Nutrition(nutname,nutQuan,unit);
+				//System.out.println(n.getNutritionName() + " " + n.getNutritionValue() + " " + n.getNutritionUnit());
+				nutritionList.add(n);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		Recipe r = new Recipe();
 		r.setRecipeID(recipeID);
-		r.setNutritionList(nutritions);
-		r.setNutritionDes(nutdesc);
-		return nutritions;
+		r.setNutritionList(nutritionList);
+		
+		return nutritionList;
 	}
 
-	public HashMap<String, String> getSelectedIngredients(ResultSet rs) {
+	public List<Ingredient> getSelectedIngredients(ResultSet rs) {
 	    
-		HashMap<String, String> quantityIngredient =  new HashMap<String, String>();
+		//HashMap<String, String> quantityIngredient =  new HashMap<String, String>();
+		ArrayList<Ingredient> ingredientList = new ArrayList<Ingredient>();
+
 	    String recipeID = "";
 		try {
 			while(rs.next()) {
 				String quantity = rs.getString("quantity");
 				String ingredient = rs.getString("realIngredient");
 				recipeID = rs.getString("recipeID");
-				quantityIngredient.put(quantity, ingredient);
+				String unit = rs.getString("unit");
+				Ingredient i = new Ingredient(quantity,unit,ingredient);
+				ingredientList.add(i);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		Recipe r = new Recipe();
 		r.setRecipeID(recipeID);
-		r.setIngredients(quantityIngredient);
-		return quantityIngredient;
+		r.setIngredients(ingredientList);
+		return ingredientList;
 	}
 
 	public List<String> getDirectory(ResultSet rs) {
@@ -216,5 +203,53 @@ public class ResultExtractor  {
 			e.printStackTrace();
 		}
 		return dirlist;
+	}
+
+	public User getThisUser(ResultSet rs) {
+		
+		User user = null;
+		
+		try {
+			while(rs.next()) {
+				String username = rs.getString("username");
+				String password = rs.getString("password");
+				String email = rs.getString("email");
+				user = new User(username, password, email);
+				System.out.println("ayammmm" +user.getUsername());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return user;
+	}
+	
+public Recipe getSelectedRecipe(ResultSet rs) {
+		
+		Recipe recipe = null;
+		try {
+			while(rs.next()){
+				String recipeName = rs.getString("recipeName");
+				String description = rs.getString("description");
+				String additionalInfo = rs.getString("additionalInfo");
+				String prepTime = rs.getString("prepTime");
+				String cookingTime = rs.getString("cookingTime");
+				String totalTime = rs.getString("totalTime");
+				String serves = rs.getString("serves");
+				String complexity = rs.getString("complexity");
+				String cuisine = rs.getString("cuisine");
+				String category = rs.getString("category");
+				String restriction = rs.getString("restriction");
+				String photoDir = rs.getString("photoDir");
+				String nutDesc = rs.getString("nutritionDescription");
+				
+				recipe = new Recipe(recipeName,  description,  additionalInfo,  prepTime, cookingTime,  totalTime,  serves,  complexity,
+						 cuisine,  category,restriction, photoDir , nutDesc);
+				recipe.setDescription(description);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return recipe;
 	}
 }

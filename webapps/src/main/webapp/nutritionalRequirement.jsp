@@ -13,21 +13,21 @@
 
 <body>
 		<div class="header">
-	  		<a href="/webapp/" class="applogo">COOKWISE</a>
+	  		<a href="/webapps/" class="applogo">COOKWISE</a>
 	  		
 		    <div class="header-login">
-		    		<a class="aboutapphome" href="/webapp/" >Home</a>
+		    		<a class="aboutapphome" href="/webapps/" >Home</a>
 	  		 	<a class="aboutapphowto" href="#default" >How to</a>
 	  		    <a class="aboutappfaq" href="#default" >FAQ</a>
-			    <a class="loginregister" href="/webapp/loginRegister">Login/Register</a>    
+			    <a class="loginregister" href="/webapps/loginRegister">Login/Register</a>    
 		  	</div>
 		</div>
 		
 		<div class="appNavigation"id="appNav">
-				<a href="/webapp/findRecipe">Search Recipes</a>
-				<a href="/webapp/foodFreshness">Food Freshness Checker</a>
-				<a href="/webapp/wasteTracker">Wasted-Money Tracker</a>
-				<a href="/webapp/nutRequirement">Nutritional Requirement Calculator</a>
+				<a href="/webapps/findRecipe">Search Recipes</a>
+				<a href="/webapps/foodFreshness">Food Freshness Checker</a>
+				<a href="/webapps/wasteTracker">Wasted-Money Tracker</a>
+				<a href="/webapps/nutRequirement">Nutritional Requirement Calculator</a>
 				<a href="#home">Leftover Alternatives</a>
 				<a href="#home">Food Inventory</a>
 			</div>
@@ -36,7 +36,7 @@
 			<h1>Nutritional Requirement Calculator</h1>
 		</div>
 		
-		<form class="bodyInfo" action="/webapp/calcRequirement" onsubmit="getRadioButtonValue()">
+		<form class="bodyInfo" action="/webapps/calcRequirement" onsubmit="getRadioButtonValue()">
 			<h2>Your Information</h2>
 			<label class=instruction>Age &nbsp; &nbsp; &nbsp;: &nbsp;  &nbsp;  </label>
 			<input type="text" id="age" name="age" value="0"  data-validation="required"><label> years old</label><br><br>

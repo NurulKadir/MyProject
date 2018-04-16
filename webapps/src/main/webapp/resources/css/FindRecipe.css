@@ -8,16 +8,16 @@
 
 /* Fixed sidenav, full height */
 .navbar {
-	height:74%;
+	height:75%;
     width: 200px;
     position: fixed;
     z-index: 1;
     left: 0;
-    background-color: #FFFAF0 ; 
+    background-color: white ; 
     padding-left:10px;
-    top:198px;
+    top:189px;
     overflow: hidden;
-   
+    border-right:solid #FFFAF0;
     
    
 }
@@ -27,6 +27,7 @@
     overflow: auto;
     height: 100%;
     padding-right: 15px;
+    padding-top:0;
 }
 
 
@@ -42,7 +43,8 @@
     padding-top:10px;
     top:120px;
     color:black;    
-    background:black;
+    background:#8B8B00; 
+    
 
 }
 
@@ -50,7 +52,7 @@
 
 #area{
 	width:700px;
-	height:40px;
+	height:32px;
 }
 
 textarea{  
@@ -76,7 +78,7 @@ textarea{
 
 #submitIngr{
 	width:150px;
-	height:55px;
+	height:40px;
 	border:none;
 	outline:none;
 	font-size:20px;
@@ -93,9 +95,9 @@ textarea{
 
 /* Style the sidenav links and the dropdown button */
 .dropdown-btn {
-    padding: 6px 8px 6px 16px;
+    padding: 3px 8px 3px 16px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 12px;
     color: #818181;
     display: block;
     border: none;
@@ -151,15 +153,17 @@ textarea{
 
 /* The container <div> - needed to position the dropdown content */
 .sortdropdown {
-    margin-left:10px;
-    margin-top:10px; 
-    margin-right:10px;
-    top:200px;
-    	
-    	padding :10px;
-    
+    margin-left:190px;
+    margin-top:0px; 
+    margin-right:0px;
+    	padding :0px;
 }
 
+.sortdropdown select{
+  
+    margin-left:10px;
+    
+}
 .result{
 	margin :10px;
 	
@@ -178,7 +182,7 @@ textarea{
    position: absolute;
    left: 50%;
    transform: translate(-50%, -50%);
-   bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+   bottom: 50px; /* At the bottom. Use top:0 to append it to the top */
    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
    color: #f1f1f1; /* Grey text */
    padding: 20px; /* Some padding */
@@ -252,16 +256,20 @@ textarea{
 
 .container {
     text-align: center;
-    color: white;
-    margin: 18px;
+    margin: 15px;
     width:280px;
-    height:300px;
-    border:solid ;
+    border-top:solid #8B8B00;
+    border-left:solid #FFFAF0;
+    border-right :solid #FFFAF0;
+    border-bottom :solid #8B8B00;
     position:relative;
     font: italic 0.8em "Fira Sans", serif;
-    background-color:white;
+    background-color: white;
     display:inline-block;
     float: left;
+    padding:5px;
+    border: solid #FFFAF0;
+    
     
 }
 
@@ -273,5 +281,34 @@ textarea{
    height:60px;
 }
 
+.tot{
+	color:black;
+	border:solid #8B8B00;
+	background-color:#8B8B00;
+	width:110px;
+	margin :4px;
+    display:inline-block;
+    font-weight:bold;
+    padding :6px;
+    
+}
 
-
+.sortoptions select {
+   width: 200px;
+   padding:25px;
+   font-size: 20px;
+   line-height: 1;
+   border: 5px solid green;
+   height: 34px;
+   -webkit-appearance: none;
+   padding :5px;
+   }
+   
+  .sortoptions {
+   width: 180px;
+   height: 28px;
+   overflow: hidden;
+   border: 2px solid #8B8B00;
+   color: green;
+   border-radius:0;
+   }

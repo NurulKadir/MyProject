@@ -1,5 +1,6 @@
 package com.fyp.webapps.entity;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -18,11 +19,12 @@ public class Recipe {
 	String restriction;
 	String photoDir;
 	String nutritionDescription;
-	HashMap<String, String> ingredients;
+	ArrayList<Ingredient> ingredients;
 	List<String> method;
 	List<String> mealType;
-	HashMap<String, String> nutritionList = new HashMap<String, String>();
+	ArrayList<Nutrition> nutritionList = new ArrayList<Nutrition>();
 	HashMap<String, String> nutritionDes = new HashMap<String, String>();
+	String totalCalories;
 	
 	
 	/*public Recipe(int recipeID, String recipeName, String description, String additionalInfo, int prepTime,
@@ -162,7 +164,7 @@ public class Recipe {
 	public void setNutritionDescription(String nutritionDescription) {
 		this.nutritionDescription = nutritionDescription;
 	}
-	public HashMap<String, String> getIngredients() {
+	public ArrayList<Ingredient> getIngredients() {
 		return ingredients;
 	}
 	public HashMap<String, String> getNutritionDes() {
@@ -173,8 +175,8 @@ public class Recipe {
 		this.nutritionDes = nutritionDes;
 	}
 
-	public void setIngredients(HashMap<String, String> quantityIngredient) {
-		this.ingredients = quantityIngredient;
+	public void setIngredients(ArrayList<Ingredient> ingredientList) {
+		this.ingredients = ingredientList;
 	}
 	public List<String> getMethod() {
 		return method;
@@ -188,11 +190,19 @@ public class Recipe {
 	public void setMealType(List<String> mealType) {
 		this.mealType = mealType;
 	}
-	public HashMap<String, String> getNutritionList() {
+	public ArrayList<Nutrition> getNutritionList() {
 		return nutritionList;
 	}
-	public void setNutritionList(HashMap<String, String> nutritions) {
-		this.nutritionList = nutritions;
+	public void setNutritionList(ArrayList<Nutrition> nutritionList2) {
+		this.nutritionList = nutritionList2;
+	}
+
+	public void setTotalCalories(String totalCal) {
+		this.totalCalories= totalCal;
+	}
+
+	public String getTotalCalories() {
+		return totalCalories;
 	}	
 
 }

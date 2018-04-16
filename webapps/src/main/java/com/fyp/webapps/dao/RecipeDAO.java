@@ -16,7 +16,7 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 
 import com.fyp.webapps.entity.Recipe;
 
-public class RecipeDAO {
+public class RecipeDAO implements BaseDao{
 	
 		 DataSource dataSource;
 		 ResultExtractor extractor = new ResultExtractor();
@@ -36,8 +36,14 @@ public class RecipeDAO {
 			JdbcTemplate select = new JdbcTemplate(dataSource);
 			
 			for(String food : foods) {
-				System.out.println(food);
-				List<Recipe> oneingrreclist= select.query("select Recipe.recipeID, Recipe.recipeName, Recipe.description, Recipe.photoDir from Recipe inner join  RecipeIngredientTag on Recipe.recipeID = RecipeIngredientTag.recipeID where RecipeIngredientTag.ingredientTag = '" + food + "'",
+				//System.out.println(food);
+				List<Recipe> oneingrreclist = 
+						select.query("select Recipe.recipeID, Recipe.recipeName, Recipe.description, Recipe.photoDir , Recipe.totalTime , RecipeNutrition.nutritionValue " + 
+						"from Recipe " + 
+						"inner join RecipeIngredientTag on Recipe.recipeID = RecipeIngredientTag.recipeID " + 
+						"inner join RecipeNutrition on Recipe.recipeID = RecipeNutrition.recipeID " + 
+						"where RecipeIngredientTag.ingredientTag = '" + food + "' " + 
+						"and RecipeNutrition.nutritionID ='E'" ,
 				 new ResultSetExtractor<List<Recipe>>() {
 					
 					@Override

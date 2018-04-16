@@ -5,13 +5,21 @@ import java.beans.PropertyVetoException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
-
+import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import com.fyp.webapps.dao.RealRecipeDAO;
+import com.fyp.webapps.dao.UserDAO;
+import com.fyp.webapps.entity.Login;
+import com.fyp.webapps.entity.Nutrition;
+//import com.fyp.webapps.dao.RecipeDAO;
+import com.fyp.webapps.entity.Recipe;
+import com.fyp.webapps.entity.User;
+import com.fyp.webapps.logic.RecipeFinder;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public final class Main {
@@ -39,7 +47,13 @@ public final class Main {
 	
     public static void main(String[] args) throws PropertyVetoException, SQLException, IOException {
     	   
-     	/*WasteDAO  W = new WasteDAO();
+    	UserDAO u = new UserDAO();
+    	u.setDataSource(getDataSource());
+    	User a = u.validateUser(new Login("kkk", "nnn"));
+    System.out.println(a.getUsername() + a.getEmail() + a.getPassword());
+    	
+    	
+    	/*WasteDAO  W = new WasteDAO();
      	W.setDataSource(getDataSource());
      	System.out.println(W.getFoodPrice("Lamb Steaks").toString());
      	
@@ -51,11 +65,15 @@ public final class Main {
      	
      	RealRecipeDAO rr = new RealRecipeDAO();
      	rr.setDataSource(getDataSource());
-     	Recipe rec = rr.selectRecipe(Integer.toString(1));
-     	System.out.println("name = "+rec.getRecipeName());
+     	rr.selectNutrition("1");
+     	//Recipe rec = rr.selectRecipe("1");
+     	
+     	for(Nutrition s : rr.selectNutrition("1")) {
+     		System.out.println("nutr = "+ s.getNutritionName() + " " + s.getNutritionValue() + " "+s.getUnit());
+     	}
      	
      	
-     	List<String> steps = rr.selectMethod(Integer.toString(1));
+     	/*List<String> steps = rr.selectMethod(Integer.toString(1));
      	for(String s : steps) {
      		System.out.println("step = "+s);
      	}
@@ -66,14 +84,19 @@ public final class Main {
 		
  		List<Recipe> allrecipes = R.getRecipes(new String[] {"almond","apricot"});
          for(Recipe recipe : allrecipes) {
-     		System.out.println(recipe.getRecipeName());
-     }*/
+     		System.out.println(recipe.getRecipeName() +" "+ recipe.getTotalTime());
+     }
+         RecipeFinder find = new RecipeFinder(getDataSource());
+         List<Recipe> allrec= find.getTheRecipes("almond,apricot");
+         for(Recipe recipe : allrec) {
+      		System.out.println(recipe.getRecipeName() +" "+ recipe.getTotalTime() + " "+recipe.getTotalCalories());
+      }
     	
     		/*GainMaintainLosePhotoDAO gmlpd = new GainMaintainLosePhotoDAO();
     		gmlpd.setDataSource(getDataSource());
      		List<String> dirs = gmlpd.getDirectory("lose");
      		for(String s : dirs) {
-         		System.out.println("dir = "+s);*/
+         		System.out.println("dir = "+s);
          	JFrame frame=new JFrame();
          	
          	InputStream stream = Main.class.getResourceAsStream("/resources/images/1.jpg");
@@ -84,7 +107,7 @@ public final class Main {
         		frame.add(label);  
         		frame.setExtendedState( frame.getExtendedState()|JFrame.MAXIMIZED_BOTH );
         		frame.setVisible(true);
-         	//}
+         	//}*/
      	
      	
      }

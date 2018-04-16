@@ -15,26 +15,26 @@
 	
 	<div class="tops">
 		<div class="header">
-	 		<a href="/webapp/" class="applogo">COOKWISE</a>
+	 		<a href="/webapps/" class="applogo">COOKWISE</a>
 	 		
 		     <div class="header-login">
-		  		<a class="aboutapphome" href="/webapp/" >Home</a>
+		  		<a class="aboutapphome" href="/webapps/" >Home</a>
 	 		 	<a class="aboutapphowto" href="#default" >How to</a>
 	 		  <a class="aboutappfaq" href="#default" >FAQ</a>
-			  <a class="loginregister" href="/webapp/loginRegister">Login/Register</a>  
+			  <a class="loginregister" href="/webapps/loginRegister">Login/Register</a>  
 		 	</div>
 		</div>
 		
 		<div class="appNavigation" id="appNav">
-			<a href="/webapp/findRecipe">Search Recipes</a>
-			<a href="/webapp/foodFreshness">Food Freshness Checker</a>
-			<a href="/webapp/wasteTracker">Wasted-Money Tracker</a>
-			<a href="/webapp/nutRequirement">Nutritional Requirement Calculator</a>
+			<a href="/webapps/findRecipe">Search Recipes</a>
+			<a href="/webapps/foodFreshness">Food Freshness Checker</a>
+			<a href="/webapps/wasteTracker">Wasted-Money Tracker</a>
+			<a href="/webapps/nutRequirement">Nutritional Requirement Calculator</a>
 			<a href="#home">Leftover Alternatives</a>
 			<a href="#home">Food Inventory</a>
 		</div>
 		
-		<form class="harea" action="/webapp/findRec">
+		<form class="harea" action="/webapps/findRec">
 		  <textarea id="area" name="chosenfood" readonly>Food Chosen</textarea>
 		  <div class="ayam">
 		      <input id="submitIngr" type="submit" value="submit">
@@ -540,39 +540,72 @@
 
 		  <div class="resultComponent">
 		
-		<div class="sortdropdown">
-		 <div class="title">
-		 	<h1>Recipes</h1>
-		</div>
-			<div class="sort">
-		  <button class="sortdropbtn">Sort by</button>
-		 
-		  <div class="sortdropdown-content">
-		    <br><a href="#">Alphabetically</a><br><br>
-		    <a href="#">Total time</a><br><br>
-		    <a href="#">Complexity</a><br><br>
-		   </div>
-		   </div>
-		  <div class="filter">
-		   <button class="filterButton">Filter by</button>
-		  <div class="filterdropdown-content">
-		    <br><a href="#">Link 1</a><br><br>
-		    <a href="#">Link 2</a><br><br>
-		    <a href="#">Link 3</a><br><br>
-		  </div>
-		  </div>
+			 <div class="title">
+			 	<h1>Recipes</h1>
+			</div>
+			
+			
+			<div class="sortdropdown">
+			
+			 <select class="price-sorting sortoptions" name="price-sorting">
+			    <option selected disabled>SORT BY</option>
+			    <option value="l2h">Total time (ascending)</option>
+			    <option value="h2l">Total time (descending)</option>
+			    <option value="call2h">Total Calories (ascending)</option>
+			    <option value="calh2l">Total Calories (descending)</option>
+			</select>
+			
+			<select class="difficultyfilter sortoptions" id="parent" name="filter">
+			    <option selected disabled>DIFFICULTY</option>
+			    <option value="easy">Easy</option>
+			    <option value="medium">Require more effort</option>
+			    <option value="hard">Quiet a challenge</option>
+			</select>
+			
+			<select class="price-sorting sortoptions" name="filter">
+			    <option selected disabled>CUISINE</option>
+			    <option value="">American</option>
+    			    <option value="l2h">Chinese</option>
+    			    <option value="l2h">Indian</option>
+    			    <option value="l2h">Italian</option>
+    			    <option value="l2h">Thai</option>
+    			    <option value="l2h">Western</option>
+			</select>
+			
+			<select class="recipeFilter sortoptions" name="filter">
+			    <option selected disabled>RESTRICTION TO EXCLUDE</option>
+			    <option value="l2h">No restriction</option>
+			    <option value="h2l">Not suitable for vegetarian and vegan</option>
+			    <option value="call2h">Not suitable for vegetarian and vegan , non-kosher</option>
+			    <option value="calh2l">Not suitable for vegetarian and vegan</option>
+    			    <option value="calh2l">Not suitable for vegetarian and vegan, non-halal, non-kosher</option>
+    			    <option value="calh2l">Not suitable for vegetarian and vegan, non-kosher</option>
+			</select>
+			
+			
+
+
+
+
+
 		</div>	 
 		
 		
 		
 		<div class="result">
 			<c:forEach items="${recipeList}" var="recipe">
-			<div class="container">
+			<div class="container ${recipe.complexity}" id="mycontainer" data-totaltime="${recipe.totalTime}" data-totalcalories="${recipe.totalCalories}" 
+			data-complexity="${recipe.complexity}">
+				 <div class="comp" style="display: none;">${recipe.complexity}</div>
 				  <div class="top-left">${recipe.recipeName}</div>
 				  <!--  <input type="hidden" name="recipeID" id="hidden" value="${recipe.recipeID}">-->
 				  <!--  <a id="update" href="${pageContext.request.contextPath}/recipes/${recipe.recipeID}" class="button">Cook this recipe</a>-->
 				    <img class="recipePhoto" src="${recipe.photoDir}" alt="" />
 				    <a id="update" href="${pageContext.request.contextPath}/recipes?recipeID=${recipe.recipeID}" class="button">Cook this recipe</a>
+				    <div class=recsideinfo>
+				    <div class="tot"><a>Total Time</a><hr id="divider"><a>${recipe.totalTime} minutes</a></div>
+				    <div class="tot"><a>Total Calories</a><hr id="divider"><a>${recipe.totalCalories} kcals</a></div>
+				    </div>
 				   <!--  <div class="centered">${recipe.description}</div>--> 
 			</div>
 			</c:forEach>
@@ -605,6 +638,69 @@
 					    }).get());
 					});
 					
+					   $( "#area" ).text(sessionStorage.getItem("food"));
+
+					 // When your submit button is clicked
+			          $("#submitIngr").click(function (e) {
+			        	
+						    var foods =   $("#area").val();
+				   			sessionStorage.setItem("food", foods);
+				
+			        });
+					
+			         $('#difficultyfilter').change(function() {
+			        	    var matches = $('div > p.' + $(this).val());
+			        	    matches.show().siblings().not(matches).hide();
+			        	});
+						
+					$(document).on("change", ".price-sorting", function() {
+
+					    var sortingMethod = $(this).val();
+
+					    if(sortingMethod == 'l2h')
+					    {
+					    	sortAscending("totalTime");
+					    }
+					    else if(sortingMethod == 'h2l')
+					    {
+					    	sortDescending("totalTime");
+					    }
+					    else if(sortingMethod == 'call2h')
+					    {
+					    	sortAscending("totalcalories");
+					    }
+					    else if(sortingMethod == 'calh2l')
+					    {
+					    	sortDescending("totalcalories");
+					    }
+					    
+					});
+					
+					function sortAscending(toCheck)
+					{
+					    var products = $('.container');
+					    if (toCheck == "totalTime"){
+					    		products.sort(function(a, b){ return $(a).data("totaltime")-$(b).data("totaltime")});
+					    }
+					    else if(toCheck == "totalcalories"){
+				    			products.sort(function(a, b){ return $(a).data("totalcalories")-$(b).data("totalcalories")});					    	
+					    }
+					    $(".result").html(products);
+
+					}
+
+					function sortDescending(toCheck)
+					{
+					    var products = $('.container');
+					    if (toCheck == "totalTime"){
+				    		products.sort(function(a, b){ return $(b).data("totaltime")-$(a).data("totaltime")});
+					    }
+					    else if(toCheck == "totalcalories"){
+				    			products.sort(function(a, b){ return $(b).data("totalcalories")-$(a).data("totalcalories")});					    	
+					    }					   
+					    $(".result").html(products);
+
+					}
 					
 					
 		         </script>		  

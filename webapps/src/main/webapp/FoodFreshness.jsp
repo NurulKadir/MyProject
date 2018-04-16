@@ -16,21 +16,21 @@
 <body>
 	
 		<div class="header">
-	 		<a href="/webapp/" class="applogo">COOKWISE</a>
+	 		<a href="/webapps/" class="applogo">COOKWISE</a>
 	 		
 		  <div class="header-login">
-		  		<a class="aboutapphome" href="/webapp/" >Home</a>
+		  		<a class="aboutapphome" href="/webapps/" >Home</a>
 	 		 	<a class="aboutapphowto" href="#default" >How to</a>
 	 		  <a class="aboutappfaq" href="#default" >FAQ</a>
-			  <a class="loginregister" href="/webapp/loginRegister">Login/Register</a>  
+			  <a class="loginregister" href="/webapps/loginRegister">Login/Register</a>  
 		 	</div>
 		</div>
 		
 		<div class="appNavigation" id="appNav">
-			<a href="/webapp/findRecipe">Search Recipes</a>
-			<a href="/webapp/foodFreshness">Food Freshness Checker</a>
-			<a href="/webapp/wasteTracker">Wasted-Money Tracker</a>
-			<a href="/webapp/nutRequirement">Nutritional Requirement Calculator</a>
+			<a href="/webapps/findRecipe">Search Recipes</a>
+			<a href="/webapps/foodFreshness">Food Freshness Checker</a>
+			<a href="/webapps/wasteTracker">Wasted-Money Tracker</a>
+			<a href="/webapps/nutRequirement">Nutritional Requirement Calculator</a>
 			<a href="#home">Leftover Alternatives</a>
 			<a href="#home">Food Inventory</a>
 		</div>
@@ -886,7 +886,7 @@
 		</div>
 			
 		<div class="foodInfo">
-				<form id="unopen" class="unopen" action="/webapp/calcFoodFreshnessUnopened" >
+				<form id="unopen" class="unopen" action="/webapps/calcFoodFreshnessUnopened" >
 					<label class="categoryTitle">UNOPENED</label><br><br>
 					<label class="question">Choose the food's sell-by-date or the printed best-before date : </label><br><br>
 					<input type="text" id="inputDate" name="pastPrintedDate" value="DD/MM/YYYY"><br><br><br>
@@ -899,7 +899,7 @@
 					<p class="error" id="unopenstorageError"></p>
 					<button class="unopenedsubmit" type="submit">Check</button>
 				</form>
-				<form class="open"  action="/webapp/calcFoodFreshnessOpened">
+				<form class="open"  action="/webapps/calcFoodFreshnessOpened">
 					<label class="categoryTitle">OPENED / BOILED / COOKED</label><br><br>
 					<label class="question">When did you open/boil/cook this food?</label><br><br>
 					<input type="text"  class="time" name="opentime" >

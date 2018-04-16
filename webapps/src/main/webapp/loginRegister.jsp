@@ -29,18 +29,14 @@
 		
 			<div id="register">
 				<h1>Create a new account</h1>
-				<form action="/webapp/register">
-					<div class="firstRowregFormTitle">
+				<form action="/webapps/register">
 					
 						<div class="registerInput">
-							<label>First Name*</label>
-							<input type="text" name="firstName"/>
+							<label>Username*</label>
+							<input type="text" name="username"/>
 						</div>
-						<div class="registerInput" >
-						    <label>Last Name*</label>
-						    <input type="text" name="lastName"/>
-						</div>
-					</div>
+						
+		
 					
 					<div class="registerInput" ><label>Email*</label><input type="text" name="email"/></div>
 					<div class="registerInput" >
@@ -55,14 +51,20 @@
 			
 			<div id="login">
 				<h1>Login to an existing account</h1>
-				<form action="/" method="post">
-					<div class="registerInput"><label>Email*</label><input type="text" /></div>
-					<div class="registerInput"><label>Password*</label><input type="text"  /></div>
+				<form action="/webapps/login">
+					<div class="registerInput" ><label >Username</label><input type="text" name="username" /></div>
+					<div class="registerInput"><label >Password*</label><input type="text"  name="password"/></div>
 					<button type="submit" class="loginbutton">Login</button>
+					
 				</form>
 				
 			</div>
 		</div>
+		 <table >
+                <tr>
+                    <td style="font-style: italic; color: red;">${message}</td>
+                </tr>
+            </table>
 	</div>
 
 </body>
