@@ -4,15 +4,14 @@ import java.beans.PropertyVetoException;
 import java.io.IOException;
 import java.sql.SQLException;
 
+
 import com.fyp.webapps.dao.UserDAO;
 import com.fyp.webapps.entity.Login;
-//import com.fyp.webapps.dao.RecipeDAO;
 import com.fyp.webapps.entity.User;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public final class Main {
     
-
 	public static ComboPooledDataSource getDataSource() throws PropertyVetoException{
 		
 				ComboPooledDataSource cpds = new ComboPooledDataSource();
@@ -31,6 +30,7 @@ public final class Main {
 		
 				return cpds;
 	}
+	
 	
 	
     public static void main(String[] args) throws PropertyVetoException, SQLException, IOException {

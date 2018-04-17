@@ -32,34 +32,29 @@ import com.fyp.webapps.logic.WasteTracker;
 public class FeaturesController {
 
 	
-	@RequestMapping("/")
+	@RequestMapping(value = { "/", "/welcome**" })
 	public String home() {
-		return "index.jsp";
-	}
-	
-	@RequestMapping("/loginRegister")
-	public String loginregister() {
-		return "loginRegister.jsp";
+		return "index";
 	}
 	
 	@RequestMapping("/findRecipe")
 	public String findRecipe(){
-		return "FindRecipe.jsp";
+		return "FindRecipe";
 	}
 	
 	@RequestMapping("/foodFreshness")
 	public String freshnessChecker(){
-		return "FoodFreshness.jsp";
+		return "FoodFreshness";
 	}
 	
 	@RequestMapping("/wasteTracker")
 	public String moneyCalc() {
-		return "wasteTracker.jsp";
+		return "wasteTracker";
 	}
 	
 	@RequestMapping("/nutRequirement")
 	public String nutReqCalc() {
-		return "nutritionalRequirement.jsp";
+		return "nutritionalRequirement";
 	}
 
 	
@@ -138,7 +133,7 @@ public class FeaturesController {
 		
 		String wasted = tracker.getWaste().toString();
 		
-		ModelAndView mv = new ModelAndView("wasteTracker.jsp");
+		ModelAndView mv = new ModelAndView("wasteTracker");
 		
 		mv.addObject("moneyWasted",wasted);
 		
@@ -286,7 +281,7 @@ public class FeaturesController {
 		model.put("ingredientList", ingredientList);
 
 		
-		return new ModelAndView("/selectedRecipe.jsp",model);
+		return new ModelAndView("/selectedRecipe",model);
 		
 	}
 	
