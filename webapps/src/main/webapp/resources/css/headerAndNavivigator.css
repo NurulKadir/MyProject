@@ -37,9 +37,6 @@ body {
   color: #6E8B3D; 
 }
 
-.header-login {
-  float: right;
-}
 
 a + a {
     margin-left: 40px;

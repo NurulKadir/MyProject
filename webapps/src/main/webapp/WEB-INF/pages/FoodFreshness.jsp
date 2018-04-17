@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+
 <!DOCTYPE html>
 <html>
 
@@ -16,13 +19,37 @@
 <body>
 	
 		<div class="header">
-	 		<a href="/webapps/" class="applogo">COOKWISE</a>
+	 		<a href="/webapps/home" class="applogo">COOKWISE</a>
 	 		
 		  <div class="header-login">
-		  		<a class="aboutapphome" href="/webapps/" >Home</a>
+		  		<a class="aboutapphome" href="/webapps/home" >Home</a>
 	 		 	<a class="aboutapphowto" href="#default" >How to</a>
 	 		  <a class="aboutappfaq" href="#default" >FAQ</a>
-			  <a class="loginregister" href="/webapps/loginRegister">Login/Register</a>  
+			  <sec:authorize access="hasRole('ROLE_USER')">
+					<!-- For login user -->
+					<c:url value="/j_spring_security_logout" var="logoutUrl" />
+					<form action="${logoutUrl}" method="post" id="logoutForm">
+						<input type="hidden" name="${_csrf.parameterName}"
+							value="${_csrf.token}" />
+					</form>
+					<script>
+						function formSubmit() {
+							document.getElementById("logoutForm").submit();
+						}
+					</script>
+			
+					
+					<c:choose>
+					    <c:when test="${pageContext.request.userPrincipal.name != null}">
+							 <a class="loginregister" href="javascript:formSubmit()">Logout</a>
+					    </c:when>    
+					    <c:otherwise>
+					         <a class="loginregister" href="/webapps/login">Login/Register</a>     
+					        <br />
+					    </c:otherwise>
+					</c:choose>
+			
+				</sec:authorize>    
 		 	</div>
 		</div>
 		

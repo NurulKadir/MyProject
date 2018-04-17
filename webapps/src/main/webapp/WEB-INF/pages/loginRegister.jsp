@@ -1,3 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+
 <!DOCTYPE html>
 
 <html>
@@ -48,24 +52,27 @@
 				</form>
 			</div>
 			
-			
 			<div id="login">
+			
 				<h1>Login to an existing account</h1>
-				<form action="/webapps/login">
+				
+				<c:if test="${not empty error}">
+					<div class="error">${error}</div>
+				</c:if>
+				<c:if test="${not empty msg}">
+					<div class="msg">${msg}</div>
+				</c:if>
+				
+				<form name="loginForm" action="<c:url value='/j_spring_security_check' />" method='POST'>
 					<div class="registerInput" ><label >Username</label><input type="text" name="username" /></div>
 					<div class="registerInput"><label >Password*</label><input type="text"  name="password"/></div>
 					<button type="submit" class="loginbutton">Login</button>
-					
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 				</form>
-				
+			
+			</div>
+			
 			</div>
 		</div>
-		 <table >
-                <tr>
-                    <td style="font-style: italic; color: red;">${message}</td>
-                </tr>
-            </table>
-	</div>
-
 </body>
 </html>

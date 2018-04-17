@@ -22,4 +22,15 @@
 		<property name="maxPoolSize" value="10" />
 		<property name="maxIdleTime" value="30000" />
 	</bean>
+	
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/pages/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+	
 </beans>
